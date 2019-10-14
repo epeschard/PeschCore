@@ -9,21 +9,22 @@
 import os.log
 import Foundation
 
-extension OSLog {
+@available(iOS 10.0, *)
+public extension OSLog {
 
-    private static var mainBundleId = Bundle.main.bundleIdentifier!
+    static var mainBundleId = Bundle.main.bundleIdentifier!
 
-    static let viewCycle = OSLog(subsystem: mainBundleId,
-                                 category: "viewCycle")
-    static let view = OSLog(subsystem: mainBundleId,
-                            category: "view")
-    static let interactor = OSLog(subsystem: mainBundleId,
-                                  category: "interactor")
-    static let presenter = OSLog(subsystem: mainBundleId,
-                                 category: "presenter")
-    static let entity = OSLog(subsystem: mainBundleId,
-                              category: "entity")
-    static let repo = OSLog(subsystem: mainBundleId,
-                            category: "repo")
+    public static let viewCycle = OSLog(subsystem: mainBundleId,
+                                        category: "viewCycle")
+    public static let view = OSLog(subsystem: mainBundleId,
+                                   category: "view")
+    public static let interactor = OSLog(subsystem: mainBundleId,
+                                         category: "interactor")
+    public static let presenter = OSLog(subsystem: mainBundleId,
+                                        category: "presenter")
+    public static let entity = OSLog(subsystem: mainBundleId,
+                                     category: "entity")
+    public static let repo = OSLog(subsystem: mainBundleId,
+                                   category: "repo")
 
 }
