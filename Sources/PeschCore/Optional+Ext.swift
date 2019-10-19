@@ -6,8 +6,6 @@
 //  Copyright © 2019 pesch.app All rights reserved.
 //
 
-//import Foundation
-
 extension Optional where Wrapped == String {
     var orEmpty: String {
         return self ?? ""

@@ -9,7 +9,7 @@
 import os.log
 import Foundation
 
-@available(iOS 10.0, *)
+@available(OSX 10.12, *)
 public extension OSLog {
 
     static var mainBundleId = Bundle.main.bundleIdentifier!

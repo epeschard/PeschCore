@@ -10,13 +10,12 @@
 import UIKit
 
 public extension UIView {
-
     /**
-    Returns a `UIView` with 2 properties set:
-     a) priority with which a view resists being made smaller than its intrinsic size.
-     b) autoresizing mask is translated into Auto Layout constraints.
-    */
-    public class func verticalSpacingView() -> UIView {
+     Returns a `UIView` with 2 properties set:
+      a) priority with which a view resists being made smaller than its intrinsic size.
+      b) autoresizing mask is translated into Auto Layout constraints.
+     */
+    class func verticalSpacingView() -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
@@ -24,20 +23,20 @@ public extension UIView {
     }
 
     /**
-    Adds a view to the end of the receiver’s list of subviews and sets the autoresizing mask is translated into Auto Layout constraints
-    */
-    public func addAutolayoutView(_ subview: UIView) {
+     Adds a view to the end of the receiver’s list of subviews and sets the autoresizing mask is translated into Auto Layout constraints
+     */
+    func addAutolayoutView(_ subview: UIView) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(subview)
     }
 
     /**
-    Pins the view to it's superview using the specified edges. It also sets the autoresizing mask is translated into Auto Layout constraints
+     Pins the view to it's superview using the specified edges. It also sets the autoresizing mask is translated into Auto Layout constraints
 
-    - parameter edges: `UIEdgeInsets` for each edge: top, left, bottom and right
-    */
+     - parameter edges: `UIEdgeInsets` for each edge: top, left, bottom and right
+     */
     @available(iOS 9.0, *)
-    public func pinToSuperview(withEdges edges: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) {
+    func pinToSuperview(withEdges edges: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) {
         guard let superView = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -45,7 +44,7 @@ public extension UIView {
             trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: -edges.right),
             topAnchor.constraint(equalTo: superView.topAnchor, constant: edges.top),
             bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -edges.bottom)
-            ])
+        ])
     }
 
     /**
@@ -54,7 +53,7 @@ public extension UIView {
      - parameter corners: Corners to round
      - parameter radius:  Radius to round to
      */
-    public func round(corners: UIRectCorner, radius: CGFloat) {
+    func round(corners: UIRectCorner, radius: CGFloat) {
         _ = _round(corners: corners, radius: radius)
     }
 
@@ -66,7 +65,7 @@ public extension UIView {
      - parameter borderColor: The border color
      - parameter borderWidth: The border width
      */
-    public func round(corners: UIRectCorner, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+    func round(corners: UIRectCorner, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
         let mask = _round(corners: corners, radius: radius)
         addBorder(mask: mask, borderColor: borderColor, borderWidth: borderWidth)
     }
@@ -78,16 +77,15 @@ public extension UIView {
      - parameter borderColor: The border color
      - parameter borderWidth: The border width
      */
-    public func fullyRound(diameter: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+    func fullyRound(diameter: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
         layer.masksToBounds = true
         layer.cornerRadius = diameter / 2
         layer.borderWidth = borderWidth
-        layer.borderColor = borderColor.cgColor;
+        layer.borderColor = borderColor.cgColor
     }
 }
 
 private extension UIView {
-
     @discardableResult func _round(corners: UIRectCorner, radius: CGFloat) -> CAShapeLayer {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
@@ -105,6 +103,5 @@ private extension UIView {
         borderLayer.frame = bounds
         layer.addSublayer(borderLayer)
     }
-
 }
 #endif

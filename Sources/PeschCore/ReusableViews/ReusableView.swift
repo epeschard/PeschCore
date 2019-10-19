@@ -6,7 +6,7 @@
 //  Copyright © 2019 pesch.app All rights reserved.
 //
 
-import Foundation
+//import Foundation
 
 /// `reuseIdentifier` provider protocol
 /// When adopted, the object will have a `reuseIdentifier` static property which can be used for dequeuing views.
