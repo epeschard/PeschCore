@@ -6,10 +6,10 @@
 //  Copyright © 2019 pesch.app All rights reserved.
 //
 
-import os.log
+import os
 import Foundation
 
-@available(iOS 10.0, *)
+@available(OSX 10.12, iOS 10, *)
 public extension OSLog {
 
     static var mainBundleId = Bundle.main.bundleIdentifier!

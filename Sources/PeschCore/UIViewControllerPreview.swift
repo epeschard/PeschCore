@@ -6,7 +6,8 @@
 //  Copyright © 2019 pesch.app All rights reserved.
 //
 
-#if canImport(SwiftUI) && DEBUG
+#if !os(macOS) && canImport(SwiftUI) && DEBUG
+import UIKit
 import SwiftUI
 
 public struct UIViewControllerPreview<ViewController: UIViewController>: UIViewControllerRepresentable {
