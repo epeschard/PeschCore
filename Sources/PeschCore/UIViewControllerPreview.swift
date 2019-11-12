@@ -22,6 +22,7 @@ public struct UIViewControllerPreview<ViewController: UIViewController>: UIViewC
         viewController
     }
 
+    @available(iOS 13.0, *)
     public func updateUIViewController(_ uiViewController: ViewController, context: UIViewControllerRepresentableContext<UIViewControllerPreview<ViewController>>) {
         return
     }
